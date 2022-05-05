@@ -43,10 +43,10 @@
         lines:
           - set transform-set VPN
 #Tạo cổng Tunnel và set up các thông tin trên cổng tunnel
-    - name: Set interface Tunnel for Router VungTau
+    - name: Set interface Tunnel for Router CanTho
       ios_l3_interface:
         name: tunnel1
-        ipv4: 172.16.1.2/24     
+        ipv4: 172.16.1.3/24     
     - name: Set GRE mode and IPSEC profile
       ios_config:
         parents:
@@ -61,7 +61,7 @@
           - ip nhrp map multicast 10.10.0.11
           - tunnel key 123
 #Cấu hình định tuyến OSPF
-    - name: Set ospf 1 area 0 for router VungTau
+    - name: Set ospf 1 area 0 for router CanTho
       ios_config:
         parents:
           - router ospf 1
@@ -77,10 +77,10 @@
           - ip ospf network broadcast
           - ip ospf priority 0
 #Cấu hình DHCP Server để cấp ip cho các host khi kết nối đến router Cần Thơ
-    - name: Set DHCP for router VungTau
+    - name: Set DHCP for router CanTho
       ios_config:
         parents:
-          - ip dhcp pool VungTau
+          - ip dhcp pool CanTho
         lines:
           - network 192.168.3.0 255.255.255.0
           - default-router 192.168.3.1
