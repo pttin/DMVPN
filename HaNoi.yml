@@ -1,6 +1,6 @@
 ---
-- name: Set config for router DaNang
-  hosts: DaNang
+- name: Set config for router HaNoi
+  hosts: HaNoi
   tasks:
 #Tiến hành đặt ip cho các thiết bị.
     - name: Set ipv4 for interface e0/0 
