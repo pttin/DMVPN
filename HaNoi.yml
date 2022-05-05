@@ -46,7 +46,7 @@
     - name: Set interface Tunnel for Router HaNoi
       ios_l3_interface:
         name: tunnel1
-        ipv4: 172.16.1.3/24     
+        ipv4: 172.16.1.2/24     
     - name: Set GRE mode and IPSEC profile
       ios_config:
         parents:
@@ -76,7 +76,7 @@
         lines:
           - ip ospf network broadcast
           - ip ospf priority 0
-#Cấu hình DHCP Server để cấp ip cho các host khi kết nối đến router Đà Nẵng  
+#Cấu hình DHCP Server để cấp ip cho các host khi kết nối đến router Hà Nội 
     - name: Set DHCP for router HaNoi
       ios_config:
         parents:
@@ -86,4 +86,4 @@
           - default-router 192.168.2.1
           - dns-server 8.8.8.8
 
-#Hoàn tất cấu hình DMVPN trên router Đà Nẵng
+#Hoàn tất cấu hình DMVPN trên router Hà Nội
