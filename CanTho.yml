@@ -1,6 +1,6 @@
 ---
-- name: Set config for router VungTau
-  hosts: VungTau
+- name: Set config for router CanTho
+  hosts: CanTho
   tasks:
 #Tiến hành đặt ip cho các thiết bị.
     - name: Set ipv4 for interface e0/0 
