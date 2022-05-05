@@ -1,22 +1,12 @@
 ---
-- name: Set config for router VungTau
-  hosts: VungTau
+- name: Set config for router CanTho
+  hosts: CanTho
   tasks:
 #Tiến hành đặt ip cho các thiết bị.
-    - name: Set ipv4 for interface e0/0 
-      ios_l3_interface:
-        name: Ethernet0/0
-        ipv4: 10.0.3.4/24
     - name: Set ipv4 for interface e0/1
       ios_l3_interface:
         name: Ethernet0/1
         ipv4: 192.168.3.1/24
-    - name: enable interface Ethernet0/0
-      ios_config:
-        parents:
-          - interface e0/0
-        lines:
-          - no shutdown
     - name: enable interface Ethernet0/1
       ios_config:
         parents:
@@ -24,7 +14,7 @@
         lines:
           - no shutdown 
 #Cấu hình chính sách quản lý và trao đổi khóa ISAKMP
-    - name: Set policy and ISAKMP exchange key on router VungTau
+    - name: Set policy and ISAKMP exchange key on router CanTho
       ios_config:
         parents:
           - crypto isakmp policy 10
@@ -86,7 +76,7 @@
         lines:
           - ip ospf network broadcast
           - ip ospf priority 0
-#Cấu hình DHCP Server để cấp ip cho các host khi kết nối đến router Vũng Tàu
+#Cấu hình DHCP Server để cấp ip cho các host khi kết nối đến router Cần Thơ
     - name: Set DHCP for router VungTau
       ios_config:
         parents:
@@ -95,9 +85,4 @@
           - network 192.168.3.0 255.255.255.0
           - default-router 192.168.3.1
           - dns-server 8.8.8.8
-#Cấu hình default route cho router Vũng Tàu        
-    - name: Set default route for router VungTau
-      ios_config:
-        commands:
-          - ip route 0.0.0.0 0.0.0.0 10.0.3.2
-#Hoàn tất cấu hình DMVPN trên router Vũng Tàu
+#Hoàn tất cấu hình DMVPN trên router Cần Thơ
