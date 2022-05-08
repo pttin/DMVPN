@@ -67,7 +67,7 @@
           - network 192.168.1.0 0.0.0.255 area 0
           - network 172.16.1.0 0.0.0.255 area 0
 #Chọn định tuyến trên cổng tunnel ( không cho cổng vậy lý e0/0 tham gia định tuyến)
-          - name: Set ospf for tunnel 1
+    - name: Set ospf for tunnel 1
       ios_config:
         parents:
           - interface tunnel 1
