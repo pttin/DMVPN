@@ -23,11 +23,11 @@
           - encryption des
           - group 2
           - authentication pre-share
-#Xác định khóa cho ISAKMP và peer, ở đây chúng ta chọn peer là dãy 8 số 0 để trỏ tất cả các peer, key 0 vnpro nghĩa là khóa mã là vnpro và không mã hóa khóa đó ( số 0).   
+#Xác định khóa cho ISAKMP và peer, ở đây chúng ta chọn peer là dãy 8 số 0 để trỏ tất cả các peer, key 0 Cisco!@# nghĩa là khóa mã là Cisco!@# và không mã hóa khóa đó ( số 0).   
     - name: Define ISAKMP key and Peer
       ios_config:
         commands:
-          - crypto isakmp key 0 vnpro address 0.0.0.0 0.0.0.0
+          - crypto isakmp key 0 Cisco!@# address 0.0.0.0 0.0.0.0
 #Cấu hình chính sách IPSEC bao gồm, đóng gói mã hóa theo giao thức ESP, hàm băm chọn md5 và thuật toán mã hóa DES.        
     - name: Set IPSEC policy
       ios_config:
